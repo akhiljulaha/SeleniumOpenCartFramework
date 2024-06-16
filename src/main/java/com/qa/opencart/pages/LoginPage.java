@@ -34,7 +34,7 @@ public class LoginPage {
 
 	// 3. Public Page Actions/Method -> what exactly you want to do on the specific
 	// page
-	@Step("getting login page title")
+	@Step("getting login page title--------")
 	public String getLoginPageTitle() {
 		return eleUtil.waitForTitleIsAndCapture(AppConstants.LOGIN_PAGE_TITLE_VALUE, AppConstants.SHORT_DEFAULT_WAIT);
 	}
