@@ -8,12 +8,13 @@ pipeline
 
     stages 
     {
+   
         stage('Build') 
         {
             steps
             {
                  git 'https://github.com/jglick/simple-maven-project-with-tests.git'
-                 sh "mvn -Dmaven.test.failure.ignore=true clean package"
+                 bat "mvn -Dmaven.test.failure.ignore=true clean package"
             }
             post 
             {
@@ -39,7 +40,7 @@ pipeline
             steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                     git 'https://github.com/akhiljulaha/SeleniumOpenCartFramework.git'
-                    sh "mvn clean test -Dsurefire.suiteXmlFiles=src/main/resources/testrunners/testng_regression.xml"
+                    bat "mvn clean test -Dsurefire.suiteXmlFiles=src/main/resources/testrunners/testng_regression.xml"
                     
                 }
             }
@@ -83,7 +84,7 @@ pipeline
             steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                     git 'https://github.com/akhiljulaha/SeleniumOpenCartFramework.git'
-                    sh "mvn clean test -Dsurefire.suiteXmlFiles=src/main/resources/testrunners/testng_sanity.xml"               
+                    bat "mvn clean test -Dsurefire.suiteXmlFiles=src/main/resources/testrunners/testng_sanity.xml"               
                 }
             }
         }
